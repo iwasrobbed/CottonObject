@@ -244,6 +244,11 @@
 
 - (NSURL*) urlForKey:(NSString*)key
 {
+    id value = self.dictionary[key];
+    if ([value isKindOfClass:NSURL.class]) {
+        return value;
+    }
+    
     NSString* urlString = [self stringForKey:key];
     NSURL* url = (urlString != nil ? [NSURL URLWithString:urlString] : nil);
     return url;
