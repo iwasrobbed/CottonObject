@@ -52,7 +52,7 @@
 
 - (instancetype) init;
 - (instancetype) initWithDictionary:(NSDictionary*)dictionary;
-- (instancetype) initWithDictionary:(NSDictionary*)dictionary removeNullKeys:(BOOL)removeNullKeys;
+- (instancetype) initWithDictionary:(NSDictionary*)dictionary removeNullKeys:(BOOL)removeNullKeys NS_DESIGNATED_INITIALIZER;
 - (BOOL) dictionaryMatchesDeclaredProperties;
 
 //------------------------------------------------------------------------------
