@@ -173,6 +173,15 @@
 
 - (BOOL) boolForKey:(NSString*)key
 {
+    // Check if saved as "true" or "false" strings (versus 1 or 0)
+    id value = self.dictionary[key];
+    if ([value isKindOfClass:NSString.class]) {
+        value = (NSString *)value;
+        if ([value isEqualToString:@"true"])    { return YES; }
+        if ([value isEqualToString:@"false"])   { return NO; }
+    }
+
+    // Otherwise, fall through to treating it as a number
     return [self numberForKey:key].boolValue;
 }
 
